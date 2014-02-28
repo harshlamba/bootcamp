@@ -1,19 +1,19 @@
 @mixin describe($bc-describe-new) {
   @if not $bc-skipping {
-    $bc-describe-old: $bc-describe !global !default;
-    $bc-describe-old: append($bc-describe-old, $bc-describe-new) !global;
+    $bc-describe-old: $bc-describe;
+    $bc-describe-old: append($bc-describe-old, $bc-describe-new) ;
 
     @if $bc-describe-depth > 0 {
-      $bc-describe: bc-util-list-join($bc-describe-old, " ", 2) !global;
+      $bc-describe: bc-util-list-join($bc-describe-old, " ", 2) ;
     } @else {
-      $bc-describe: "#{$bc-describe-new}" !global;
+      $bc-describe: "#{$bc-describe-new}" ;
     }
 
-    $bc-describe-depth: $bc-describe-depth + 1 !global;
+    $bc-describe-depth: $bc-describe-depth + 1 ;
 
     @content;
 
-    $bc-describe: "" !global;
+    $bc-describe: "" ;
 
     $_tmp: ();
 
@@ -21,9 +21,9 @@
       $_tmp: append($_tmp, nth($bc-describe-old, $i));
     }
 
-    $bc-describe-old: $_tmp !global;
-    $bc-describe: nth($bc-describe-old, 1) !global;
-    $bc-describe-depth: $bc-describe-depth - 1 !global;
+    $bc-describe-old: $_tmp ;
+    $bc-describe: nth($bc-describe-old, 1) ;
+    $bc-describe-depth: $bc-describe-depth - 1 ;
 
   } @else {
     @content;

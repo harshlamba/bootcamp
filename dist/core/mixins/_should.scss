@@ -1,15 +1,15 @@
 @mixin should($actual, $expect) {
   @if $bc-error {
-    $expect: false !global;
+    $expect: false ;
   }
 
-  $bc-asserts: $bc-asserts + 1 !global;
+  $bc-asserts: $bc-asserts + 1 ;
 
-  $bc-actual: bc-util-stringify($bc-actual) !global;
-  $bc-expect: bc-util-stringify($bc-expect) !global;
+  $bc-actual: bc-util-stringify($bc-actual) ;
+  $bc-expect: bc-util-stringify($bc-expect) ;
 
   @if not $expect {
-    $bc-passing: false !global;
+    $bc-passing: false ;
   }
 
   @if not $expect or $bc-setting-verbose {
@@ -33,14 +33,14 @@
 
   @if $bc-error-text {
     @if not index($bc-errors, $bc-error-text) {
-      $bc-errors: append($bc-errors, $bc-error-text) !global;
+      $bc-errors: append($bc-errors, $bc-error-text) ;
     }
   }
 
-  $bc-actual-text: null !global;
-  $bc-expect-text: null !global;
-  $bc-actual:      null !global;
-  $bc-expect:      null !global;
-  $bc-error-text:  null !global;
-  $bc-error:      false !global;
+  $bc-actual-text: null ;
+  $bc-expect-text: null ;
+  $bc-actual:      null ;
+  $bc-expect:      null ;
+  $bc-error-text:  null ;
+  $bc-error:      false ;
 }
